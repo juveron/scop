@@ -53,3 +53,6 @@ dkms.conf
 
 # MAC_OSX
 .DS_Store
+
+# NAME FILE
+scop
