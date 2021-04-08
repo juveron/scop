@@ -164,6 +164,14 @@ SRC_MATH :=	clamp.c		\
 			radian.c	\
 			vec2.c		\
 			vec2f.c		\
+			mat_copy.c	\
+			mat_mul.c	\
+			mat_projection.c	\
+			mat_rotate.c	\
+			mat_scale.c		\
+			mat_translate.c	\
+			new_mat.c		\
+			new_vec.c		\
 
 SRCPATH_MATH := $(addprefix $(SRCDIR_MATH), $(SRC_MATH))
 

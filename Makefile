@@ -16,9 +16,13 @@ CC = clang
 
 FLAGS = -Wall -Werror -Wextra
 
-SRCS = src/main.c
+SRCSDIR = srcs/
 
-OBJECT = $(SRCS:.c=.o)
+SRCS = error.c init.c gl_objs.c main.c matrix.c model.c parse.c shader.c store.c texture.c utils.c window_events.c
+
+SRCPATH := $(addprefix $(SRCSDIR), $(SRCS))
+
+OBJECT = $(SRCPATH:.c=.o)
 
 HEADER = .
 
@@ -26,7 +30,7 @@ INCLUDE = includes/scop.h
 
 LIBFT = libft/libft.a
 
-GLFW_LIB = `pkg-config --static --libs glfw3` -framework OpenGL -framework GLUT
+GLFW_LIB = `pkg-config --static --libs glfw3` -framework OpenGL
 GLFW_INC = `pkg-config --cflags-only-I glfw3`
 
 all: $(LIBFT) $(NAME)

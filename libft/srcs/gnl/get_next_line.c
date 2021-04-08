@@ -12,86 +12,57 @@
 
 #include "libft.h"
 
-static int	free_part_lst(char **lst_fd)
-{
-	ft_memdel((void **)lst_fd);
-	return (0);
-}
-
-static int	get_new_line(char **str, char **line)
+int		ft_extract_line(char **ptr, char **line, int fd, int ret)
 {
 	char	*tmp;
-	size_t	len;
+	int		x;
 
-	len = 0;
-	while ((*str)[len] != '\n' && (*str)[len] != '\0')
-		len++;
-	if ((*str)[len] == '\n')
+	x = 0;
+	while (ptr[fd][x] != '\n' && ptr[fd][x] != '\0')
+		x++;
+	if (ptr[fd][x] == '\n')
 	{
-		if (!(*line = ft_strsub(*str, 0, len)))
-			return (-1);
-		(*line)[len] = 0;
-		if (!(tmp = ft_strdup(*str + len + 1)))
-			return (-1);
-		free(*str);
-		*str = tmp;
+		*line = ft_strsub(ptr[fd], 0, x);
+		tmp = ft_strdup(ptr[fd] + x + 1);
+		free(ptr[fd]);
+		ptr[fd] = tmp;
+		if (ptr[fd][0] == '\0')
+			ft_strdel(&ptr[fd]);
 	}
-	else if ((*str)[len] == '\0')
+	else if (ptr[fd][x] == '\0')
 	{
-		if (!(*line = ft_strdup(*str)))
-			return (-1);
-		ft_strdel(str);
+		if (ret == BUFF_SIZE)
+			return (get_next_line(fd, line));
+		*line = ft_strdup(ptr[fd]);
+		ft_strdel(&ptr[fd]);
 	}
 	return (1);
 }
 
-static int	free_all_data(char **fd)
+int		get_next_line(const int fd, char **line)
 {
-	int	i;
+	static char	*ptr[512];
+	char		buf[BUFF_SIZE + 1];
+	char		*tmp;
+	int			ret;
 
-	i = 0;
-	while (i < 512)
-	{
-		ft_strdel(&fd[i]);
-		++i;
-	}
-	return (0);
-}
-
-static int	get_line(char **lst_fd, int fd, int *ret)
-{
-	char	buffer[BUFF_SIZE + 1];
-	char	*tmp;
-
-	while (!(ft_strchr(lst_fd[fd], '\n'))
-		&& (*ret = read(fd, buffer, BUFF_SIZE)) > 0)
-	{
-		buffer[*ret] = '\0';
-		if (!(tmp = ft_strjoin(lst_fd[fd], buffer)))
-			return (0);
-		free(lst_fd[fd]);
-		lst_fd[fd] = tmp;
-	}
-	return (1);
-}
-
-int			get_next_line(const int fd, char **line)
-{
-	int				ret;
-	static char		*lst_fd[512];
-
-	ret = 1;
-	if (fd == -2)
-		return (free_all_data(lst_fd));
 	if (fd < 0 || line == NULL)
 		return (-1);
-	if (!lst_fd[fd])
-		lst_fd[fd] = (char *)ft_memalloc(1);
-	if (!get_line(lst_fd, fd, &ret))
-		return (-1);
+	while ((ret = read(fd, buf, BUFF_SIZE)) > 0)
+	{
+		buf[ret] = '\0';
+		if (ptr[fd] == NULL)
+			ptr[fd] = ft_strnew(1);
+		tmp = ft_strjoin(ptr[fd], buf);
+		free(ptr[fd]);
+		ptr[fd] = tmp;
+		if (ft_strchr(buf, '\n'))
+			break ;
+	}
 	if (ret < 0)
 		return (-1);
-	if (!ret && (!lst_fd[fd] || !*lst_fd[fd]))
-		return (free_part_lst(&lst_fd[fd]));
-	return (get_new_line(&lst_fd[fd], line));
+	else if (ret == 0 && (ptr[fd] == NULL || ptr[fd][0] == '\0'))
+		return (0);
+	return (ft_extract_line(ptr, line, fd, ret));
 }
+
