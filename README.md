@@ -1,2 +1,0 @@
-# Scop
-Mini infographic project

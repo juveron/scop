@@ -65,4 +65,3 @@ int		get_next_line(const int fd, char **line)
 		return (0);
 	return (ft_extract_line(ptr, line, fd, ret));
 }
-

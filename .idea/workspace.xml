@@ -13,14 +13,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3d6e3407-08e9-4fc7-9b39-4066108eeac5" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/init_env.c" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main.c" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/parser.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/scop.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/scop.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/Makefile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/include/scop.h" beforeDir="false" afterPath="$PROJECT_DIR$/includes/scop.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/libft/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/libft/hdrs/libft_math.h" beforeDir="false" afterPath="$PROJECT_DIR$/libft/hdrs/libft_math.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libft/srcs/gnl/get_next_line.c" beforeDir="false" afterPath="$PROJECT_DIR$/libft/srcs/gnl/get_next_line.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/srcs/parse.c" beforeDir="false" afterPath="$PROJECT_DIR$/srcs/parse.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/srcs/store.c" beforeDir="false" afterPath="$PROJECT_DIR$/srcs/store.c" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -98,13 +97,6 @@
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/minilibx_macosX" />
     </key>
-  </component>
-  <component name="RunManager">
-    <configuration default="true" type="GradleAppRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" PASS_PARENT_ENVS_2="true">
-      <method v="2">
-        <option name="com.jetbrains.cidr.cpp.gradle.execution.GradleNativeBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
-      </method>
-    </configuration>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">

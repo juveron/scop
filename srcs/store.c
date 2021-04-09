@@ -30,7 +30,7 @@ void	store_vertex(char **data, t_vec3 **array, unsigned int *nb_vtx)
 	if (!(array[vtx_idx] = (t_vec3*)malloc(sizeof(t_vec3))))
 		exit_error(ALLOC, NULL);
 	*(array[vtx_idx]) = new_vec3(ft_atof(data[1]),
-							  ft_atof(data[2]), ft_atof(data[3]));
+							ft_atof(data[2]), ft_atof(data[3]));
 	vtx_idx++;
 }
 
