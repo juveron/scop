@@ -18,7 +18,7 @@ FLAGS = -Wall -Werror -Wextra
 
 SRCSDIR = srcs/
 
-SRCS = error.c init.c gl_objs.c main.c matrix.c model.c parse.c shader.c store.c texture.c utils.c window_events.c
+SRCS = error_handler.c initialization.c generate_gl_objs.c main.c rotation_and_translation.c set_model_pos_infos.c parser.c get_shader.c data_storer.c get_texture.c tools.c events.c
 
 SRCPATH := $(addprefix $(SRCSDIR), $(SRCS))
 
