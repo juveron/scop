@@ -46,7 +46,7 @@ static void			bind_uniform_locations(t_gl_objs *gl_objs)
 	glUniform1i(glGetUniformLocation(gl_objs->shader_prog,
 	"kitten_texture"), 0);
 	glUniform1i(glGetUniformLocation(gl_objs->shader_prog,
-	"fkoehler_texture"), 1);
+	"banane_texture"), 1);
 }
 
 static unsigned int	generate_ebo(unsigned int **faces, unsigned int nb_faces)
