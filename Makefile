@@ -20,7 +20,7 @@ SRCSDIR = srcs/
 
 SRCS = error_handler.c initialization.c generate_gl_objs.c main.c rotation_and_translation.c set_model_pos_infos.c parser.c get_shader.c data_storer.c get_texture.c tools.c events.c
 
-SRCPATH := $(addprefix $(SRCSDIR), $(SRCS))
+SRCPATH = $(addprefix $(SRCSDIR), $(SRCS))
 
 OBJECT = $(SRCPATH:.c=.o)
 
@@ -33,10 +33,17 @@ LIBFT = libft/libft.a
 GLFW_LIB = `pkg-config --static --libs glfw3` -framework OpenGL
 GLFW_INC = `pkg-config --cflags-only-I glfw3`
 
+
 all: $(LIBFT) $(NAME)
 
 $(LIBFT):
 	@make -C libft
+
+macOS:
+	brew install glfw
+
+linuxDist:
+	apt-get install glfw
 
 %.o: %.c $(INCLUDE)
 	$(CC) -o $@ -c $< $(FLAGS) -I$(HEADER)
@@ -57,6 +64,6 @@ fclean: clean
 
 re: fclean all
 
-.PHONY: all debug clean fclean re
+.PHONY: all debug clean fclean re macOS linuxDist
 
 
