@@ -42,9 +42,6 @@ $(LIBFT):
 macOS:
 	brew install glfw
 
-linuxDist:
-	sudo apt-get install glfw
-
 %.o: %.c $(INCLUDE)
 	$(CC) -o $@ -c $< $(FLAGS) -I$(HEADER)
 
