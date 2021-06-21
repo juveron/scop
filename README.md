@@ -10,7 +10,7 @@ But the purpose is an introduction of how to use the api of openGL with the shad
 
 The program takes one paramete
 
-usage : ./scop [*.obj]
+usage : ./scop ressources/*.obj
 
 
 <img width="1589" alt="Screenshot 2021-06-21 at 14 33 15" src="https://user-images.githubusercontent.com/42654259/122762618-ca42b580-d29d-11eb-9a16-340569a1d89f.png">
